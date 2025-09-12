@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI大模型+养老新纪元：智力抗衰老服务合作方案</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Tech & Humanity -->
+    <!-- Application Structure Plan: The SPA is designed as a persuasive narrative, guiding institution decision-makers from the market opportunity to the clear benefits of partnership. The structure flows from a high-level hook (Preamble), deep-dives into the innovative solution (Core Service & AI Power), visualizes the clear benefits (Triple-Win Value Proposition), explains the simple collaboration steps (Partnership Model), and ends with a strong call to action. This thematic structure is more engaging than the original linear document. -->
+    <!-- Visualization & Content Choices: 
+        - Market Size (Preamble): Goal: Inform. Method: Large dynamic number. Justification: Immediately establishes the scale and urgency of the market.
+        - Core Service Features (AI Power): Goal: Organize/Inform. Method: Interactive HTML/CSS cards. Justification: Allows users to explore the advanced AI features at their own pace without cluttering the UI.
+        - Cognitive Benefit (Value Prop): Goal: Inform. Method: Chart.js Donut Chart. Justification: Clearly visualizes the primary benefit for seniors as a significant proportion, making the "health" aspect tangible.
+        - Institution Brand Value (Value Prop): Goal: Compare. Method: Chart.js Bar Chart. Justification: Effectively compares the "before" and "after" state of an institution's brand image, highlighting the innovative leap.
+        - Revenue Model (Value Prop): Goal: Inform. Method: Chart.js Pie Chart. Justification: Provides a clear, universally understood visualization of the win-win revenue sharing model.
+        - Partnership Roles (Partnership Model): Goal: Organize. Method: Structured HTML/CSS side-by-side lists. Justification: Simplifies the understanding of responsibilities, making the partnership seem straightforward and low-barrier.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #0284c7, #059669);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-flip {
+            perspective: 1000px;
+        }
+        .card-flip-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        .card-flip:hover .card-flip-inner {
+            transform: rotateY(180deg);
+        }
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .card-back {
+            transform: rotateY(180deg);
+            background-color: #059669;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center my-12 md:my-16">
+            <h1 class="text-4xl md:text-6xl font-bold text-slate-900 mb-4">
+                <span class="gradient-text">AI大模型</span> 赋能智慧养老新纪元
+            </h1>
+            <p class="text-xl text-slate-600 max-w-3xl mx-auto">我们诚邀您共同引入前沿的“AI大模型+写作”服务，打造智力抗衰老特色，开启机构发展新篇章。</p>
+        </header>
+
+        <section class="bg-white p-8 rounded-2xl shadow-lg mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">市场的呼唤：从基础照护到精神慰藉</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg mb-4 text-slate-700">随着中国步入深度老龄化社会，养老服务的核心正在发生深刻变革。满足长者的精神文化需求、帮助他们实现自我价值，已成为养老产业高质量发展的关键，也是一片广阔的“价值蓝海”。</p>
+                    <p class="text-lg text-slate-700">本合作方案正是基于这一洞察，旨在通过引入国家战略级的大模型技术，为您打造独一无二的服务优势，抢占市场先机。</p>
+                </div>
+                <div class="text-center bg-slate-100 p-6 rounded-xl">
+                    <p class="text-lg text-slate-600">中国60岁及以上人口已达</p>
+                    <div id="elderly-population" class="text-7xl font-bold my-2 gradient-text">2.97亿</div>
+                    <p class="text-sm text-slate-500">数据来源：国家统计局 (截至2023年底)</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-2">我们的核心服务</h2>
+            <p class="text-lg text-center text-slate-600 max-w-3xl mx-auto mb-8">我们提供的不是普通课程，而是一个由AI大模型驱动的、专为人生故事创作而生的完整生态系统。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="card-flip h-64">
+                    <div class="card-flip-inner">
+                        <div class="card-front bg-white shadow-lg border border-slate-200">
+                            <h3 class="text-2xl font-bold text-sky-600 mb-2">高度拟人化语音转写</h3>
+                            <p class="text-slate-600">长者只需口述，大模型即可实时转为文字，能理解方言、语气，准确率远超传统工具。</p>
+                        </div>
+                        <div class="card-back">
+                            <p>彻底解决长者打字慢、书写难的痛点，让思绪如流水般记录下来。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-flip h-64">
+                    <div class="card-flip-inner">
+                        <div class="card-front bg-white shadow-lg border border-slate-200">
+                            <h3 class="text-2xl font-bold text-sky-600 mb-2">个性化写作风格辅助</h3>
+                            <p class="text-slate-600">大模型能学习并模仿长者的语言风格，润色文稿，让文字保留个人特色，更富情感。</p>
+                        </div>
+                        <div class="card-back">
+                            <p>不仅是记录，更是艺术创作。让每本回忆录都成为独一无二的文学作品。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-flip h-64">
+                    <div class="card-flip-inner">
+                        <div class="card-front bg-white shadow-lg border border-slate-200">
+                            <h3 class="text-2xl font-bold text-sky-600 mb-2">多维度故事线索挖掘</h3>
+                            <p class="text-slate-600">在长者回忆卡顿时，大模型能提出启发性问题，引导其回忆起更多尘封的细节。</p>
+                        </div>
+                        <div class="card-back">
+                            <p>AI成为记忆的钥匙，开启深度对话，让回忆录更加丰满、立体。</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="card-flip h-64">
+                    <div class="card-flip-inner">
+                        <div class="card-front bg-white shadow-lg border border-slate-200">
+                            <h3 class="text-2xl font-bold text-sky-600 mb-2">跨模态数字人视频生成</h3>
+                            <p class="text-slate-600">将最终文稿一键生成由长者形象的数字人讲述的短视频剧集，实现多媒体传承。</p>
+                        </div>
+                        <div class="card-back">
+                            <p>让家族故事不仅能读，更能看、能听，成为永不褪色的动态数字遗产。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">AI大模型带来的三大核心赋能</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-emerald-600 mb-4 text-center">1. 打造“认知训练疗法”特色服务</h3>
+                    <p class="text-slate-600 text-center mb-6">大模型的高度交互性与创造性，能深度激发长者大脑活性，是一种前瞻性的智力抗衰老服务。</p>
+                    <div class="chart-container">
+                        <canvas id="cognitiveChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-emerald-600 mb-4 text-center">2. 树立“技术创新”品牌标杆</h3>
+                     <p class="text-slate-600 text-center mb-6">在同质化竞争中，引入大模型服务将使您的机构脱颖而出，形成独有的市场壁垒和品牌美誉度。</p>
+                    <div class="chart-container">
+                        <canvas id="brandChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-emerald-600 mb-4 text-center">3. 开辟“高价值”全新收入来源</h3>
+                    <p class="text-slate-600 text-center mb-6">依托大模型的高技术价值，课程具备高市场溢价。通过共赢分成模式，为机构带来可持续的丰厚回报。</p>
+                    <div class="chart-container">
+                        <canvas id="revenueChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white p-8 rounded-2xl shadow-lg mb-16">
+            <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">简单高效的合作模式</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-slate-50 p-6 rounded-xl border">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">贵机构仅需提供：</h3>
+                    <ul class="space-y-3 text-lg text-slate-700">
+                        <li class="flex items-start"><span class="text-emerald-500 mr-3 mt-1">✓</span><div><strong class="font-semibold">场地支持：</strong>一间用于线下集中上课的教室或活动室。</div></li>
+                        <li class="flex items-start"><span class="text-emerald-500 mr-3 mt-1">✓</span><div><strong class="font-semibold">人员支持：</strong>指定1-2名员工成为辅导员，参与项目管理。</div></li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-xl border">
+                    <h3 class="text-2xl font-bold mb-4 text-slate-800">我们将全力支持：</h3>
+                    <ul class="space-y-3 text-lg text-slate-700">
+                        <li class="flex items-start"><span class="text-sky-500 mr-3 mt-1">✓</span><div><strong class="font-semibold">全套课程与师资：</strong>提供成熟的课程体系与专业的线上讲师。</div></li>
+                        <li class="flex items-start"><span class="text-sky-500 mr-3 mt-1">✓</span><div><strong class="font-semibold">辅导员免费培训：</strong>让您的员工成为懂AI、善辅导的专业人才。</div></li>
+                        <li class="flex items-start"><span class="text-sky-500 mr-3 mt-1">✓</span><div><strong class="font-semibold">招生与营销支持：</strong>提供免费试听课等营销工具，协助您轻松招生。</div></li>
+                         <li class="flex items-start"><span class="text-sky-500 mr-3 mt-1">✓</span><div><strong class="font-semibold">核心技术支持：</strong>提供定制化AI大模型服务接口，保障服务顺畅。</div></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center my-12">
+             <h2 class="text-4xl font-bold text-slate-900 mb-4">现在，就让我们携手共进</h2>
+             <p class="text-xl text-slate-600 mb-8">共同探索“AI大模型+养老”的无限可能，为中国的老龄事业贡献创新力量。</p>
+             <button class="bg-sky-600 text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:bg-sky-700 transition-all text-lg">联系我们，立即开启合作</button>
+        </footer>
+    </div>
+
+    <script>
+        function wrapLabels(label) {
+            if (typeof label === 'string' && label.length > 16) {
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > 16) {
+                        if (currentLine) lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) lines.push(currentLine.trim());
+                return lines;
+            }
+            return label;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+        
+        const chartOptionsTemplate = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: {
+                    callbacks: { title: tooltipTitleCallback },
+                    backgroundColor: '#1e293b',
+                    titleFont: { size: 14, family: "'Noto Sans SC', sans-serif" },
+                    bodyFont: { size: 12, family: "'Noto Sans SC', sans-serif" },
+                    padding: 10,
+                    cornerRadius: 4,
+                }
+            },
+            scales: {
+                y: { beginAtZero: true, grid: { color: '#e2e8f0' } },
+                x: { grid: { display: false } }
+            }
+        };
+
+        function initCognitiveChart() {
+            const ctx = document.getElementById('cognitiveChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['有效激活大脑认知', ''],
+                    datasets: [{
+                        data: [85, 15],
+                        backgroundColor: ['#10b981', '#f1f5f9'],
+                        borderColor: '#ffffff',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                options: { ...chartOptionsTemplate,
+                    cutout: '70%',
+                    plugins: { ...chartOptionsTemplate.plugins,
+                       tooltip: { ...chartOptionsTemplate.plugins.tooltip },
+                       title: {
+                            display: true,
+                            text: '“AI+写作”对认知健康的积极影响',
+                            font: { size: 16, family: "'Noto Sans SC', sans-serif", weight: '500' },
+                            color: '#334155',
+                            padding: { bottom: 20 }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initBrandChart() {
+            const ctx = document.getElementById('brandChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['传统服务', '引入AI大模型服务'],
+                    datasets: [{
+                        label: '品牌创新指数',
+                        data: [30, 95],
+                        backgroundColor: ['#a5b4fc', '#4f46e5'],
+                        borderRadius: 6,
+                        barPercentage: 0.6
+                    }]
+                },
+                options: { ...chartOptionsTemplate,
+                    indexAxis: 'y',
+                    scales: { x: { max: 100 } },
+                    plugins: { ...chartOptionsTemplate.plugins,
+                       title: {
+                            display: true,
+                            text: '引入大模型服务后品牌创新力对比',
+                            font: { size: 16, family: "'Noto Sans SC', sans-serif", weight: '500' },
+                            color: '#334155',
+                            padding: { bottom: 20 }
+                        }
+                    }
+                }
+            });
+        }
+
+        function initRevenueChart() {
+            const ctx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'pie',
+                data: {
+                    labels: ['养老机构分成', '研究院及运营'],
+                    datasets: [{
+                        data: [50, 50],
+                        backgroundColor: ['#34d399', '#60a5fa'],
+                        borderColor: '#ffffff',
+                        borderWidth: 4,
+                        hoverOffset: 4
+                    }]
+                },
+                 options: { ...chartOptionsTemplate,
+                    plugins: { 
+                        ...chartOptionsTemplate.plugins,
+                        legend: { display: true, position: 'bottom' },
+                        title: {
+                            display: true,
+                            text: '课程收入共赢分成模型',
+                            font: { size: 16, family: "'Noto Sans SC', sans-serif", weight: '500' },
+                            color: '#334155',
+                            padding: { bottom: 20 }
+                        }
+                    }
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            initCognitiveChart();
+            initBrandChart();
+            initRevenueChart();
+
+            const counter = document.getElementById('elderly-population');
+            const target = 2.97;
+            let current = 0;
+            const increment = target / 100;
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                counter.innerText = current.toFixed(2) + '亿';
+            }, 20);
+        });
+    </script>
+</body>
+</html>

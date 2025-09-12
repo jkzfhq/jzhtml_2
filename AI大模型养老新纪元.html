@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI+养老新纪元：家传智能写作课程合作方案</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Chosen Palette: Energetic & Playful -->
+<!-- Application Structure Plan: The infographic is structured as a top-down persuasive narrative for elderly care institution decision-makers. It begins with a high-level introduction to the market opportunity (the "Spiritual Blue Ocean"). It then details the core product—the 50-week intelligent writing course—using a timeline to show its structure. The core "Value Proposition" section is broken into three distinct benefits (for seniors, families, and institutions), each supported by a visualization. Finally, it presents a clear, tangible partnership model and concludes with a strong call to action. This structure logically guides the user from the "why" (market need) to the "what" (the course), the "so what" (the benefits), and finally the "now what" (the partnership). -->
+<!-- Visualization & Content Choices:
+- Market Size (Introduction): Goal: Inform. Method: Large static number card. Justification: To immediately establish the scale of the market opportunity.
+- Course Structure: Goal: Organize/Change. Method: HTML/CSS vertical timeline. Justification: Clearly visualizes the year-long journey and its distinct phases.
+- Benefit to Seniors (Value Proposition): Goal: Inform. Method: Chart.js Doughnut Chart. Justification: To quantify the positive impact on cognitive health in a simple, compelling visual.
+- Benefit to Families (Value Proposition): Goal: Organize. Method: HTML/CSS simple flowchart. Justification: To illustrate the process of creating and passing on a digital legacy.
+- Benefit to Institutions (Value Proposition): Goal: Inform. Method: Chart.js Pie Chart. Justification: To clearly and simply communicate the 50/50 revenue sharing model.
+- Partnership Model: Goal: Organize. Method: Numbered list with icons (achieved via styled HTML). Justification: Breaks down the partnership benefits into clear, easy-to-digest steps.
+-->
+<!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+<style>
+body {
+font-family: 'Noto Sans SC', sans-serif;
+background-color: #f8f9fa;
+}
+.chart-container {
+position: relative;
+width: 100%;
+max-width: 400px;
+margin-left: auto;
+margin-right: auto;
+height: 300px;
+max-height: 350px;
+}
+.kpi-card {
+background-color: white;
+border-radius: 0.75rem;
+padding: 1.5rem;
+box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+text-align: center;
+border-left: 5px solid #118AB2;
+}
+.flow-step {
+display: flex;
+align-items: center;
+margin-bottom: 1rem;
+padding: 1rem;
+background-color: #ffffff;
+border-radius: 0.5rem;
+box-shadow: 0 2px 4px rgb(0 0 0 / 0.05);
+transition: transform 0.2s;
+}
+.flow-step:hover {
+transform: translateY(-5px);
+}
+.flow-step-number {
+font-size: 1.5rem;
+font-weight: 700;
+color: #118AB2;
+margin-right: 1.5rem;
+flex-shrink: 0;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid #118AB2;
+border-radius: 50%;
+}
+.timeline-item {
+position: relative;
+padding-bottom: 2rem;
+padding-left: 2rem;
+border-left: 2px solid #06D6A0;
+}
+.timeline-item:last-child {
+border-left: 2px solid transparent;
+}
+.timeline-dot {
+position: absolute;
+left: -0.6rem;
+top: 0;
+height: 1.2rem;
+width: 1.2rem;
+background-color: #06D6A0;
+border-radius: 50%;
+border: 3px solid #f8f9fa;
+}
+</style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+<div class="container mx-auto p-4 md:p-8">
+    <header class="text-center mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-[#073B4C] mb-4">开启AI大模型养老新纪元</h1>
+        <p class="text-xl text-[#118AB2]">AI+家传：为长寿著书，为机构赋能</p>
+    </header>
+
+    <section id="introduction" class="mb-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold text-[#073B4C] mb-4">养老服务的“精神蓝海”</h2>
+                <p class="text-lg mb-4">传统的养老服务侧重于满足长者的基本生活与医疗需求，这无疑是基石。然而，随着物质生活的丰富，长者们日益增长的精神文化与情感需求，已成为一片广阔的“蓝海”。</p>
+                <p class="text-lg">“AI+家传”项目正是为填补这一空白而来，它将先进的人工智能技术与深刻的人文关怀相结合，旨在帮助长者记录人生、传承智慧，实现生命价值的升华。</p>
+            </div>
+            <div class="kpi-card border-[#EF476F]">
+                <span class="text-6xl font-bold text-[#EF476F]">2.97亿</span>
+                <p class="text-xl mt-2 text-gray-600">截至2023年底，中国60岁及以上老年人口数量</p>
+                <p class="text-sm mt-1 text-gray-500">数据来源：国家统计局</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="course-overview" class="mb-16 bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-8">核心项目：家传智能写作课程</h2>
+        <p class="text-lg text-center max-w-3xl mx-auto mb-10">一个为期50周的AI陪伴式旅程，引导长者利用AI轻松将口述的人生故事，转化为精美的回忆录与短视频，为家族留下永不褪色的数字遗产。</p>
+        <div class="max-w-4xl mx-auto">
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3 class="text-2xl font-bold text-[#06D6A0]">第一季：童年与故乡 (1-13周)</h3>
+                <p class="mt-2 text-gray-600">从“我的诞生”开始，唤醒尘封的童年记忆，重温故乡的风土人情与家庭的温暖起点。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3 class="text-2xl font-bold text-[#06D6A0]">第二季：求学与成长 (14-26周)</h3>
+                <p class="mt-2 text-gray-600">追忆青葱的求学岁月，记录知识的启蒙、真挚的友谊与人生的第一次重要选择。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3 class="text-2xl font-bold text-[#06D6A0]">第三季：事业与家庭 (27-39周)</h3>
+                <p class="mt-2 text-gray-600">梳理奋斗的职场生涯，讲述爱情与家庭的建立，分享为人父母的喜悦与责任。</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <h3 class="text-2xl font-bold text-[#06D6A0]">第四季：沉淀与传承 (40-50周)</h3>
+                <p class="mt-2 text-gray-600">感悟退休后的生活智慧，总结人生最宝贵的经验，将生命感悟化为留给后人的箴言。</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="value-proposition" class="mb-16">
+        <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-8">三重价值：赋能长者、家庭与机构</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-[#118AB2] mb-4 text-center">⭐ 对长者：健康、快乐、留传承</h3>
+                <p class="mb-6 text-center">通过回忆与创作激活大脑，对抗认知衰退，在分享中收获巨大的成就感与幸福感。</p>
+                <div class="chart-container mb-6">
+                    <canvas id="dementiaChart"></canvas>
+                </div>
+                <p class="text-center text-gray-600">科学研究表明，积极的认知活动，如写作，能有效锻炼大脑，增强生活热情，让精气神减龄10岁。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-[#FFD166] mb-4 text-center">🏠 对家庭：情感、链接、存记忆</h3>
+                <p class="mb-6 text-center">家传作品不仅是个人回忆，更是连接人的情感桥梁和家族精神的宝库。</p>
+                <div class="p-6 bg-gray-50 rounded-lg">
+                     <div class="flex items-center mb-4">
+                        <div class="bg-[#FFD166] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-xl mr-4">我</div>
+                        <div class="text-lg">长者的智慧与故事</div>
+                    </div>
+                    <div class="h-8 w-1 bg-[#FFD166] ml-4"></div>
+                     <div class="flex items-center mb-4">
+                        <div class="bg-[#FFD166] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-xl mr-4">⬇</div>
+                        <div class="text-lg">AI转化为数字家传</div>
+                    </div>
+                    <div class="h-8 w-1 bg-[#FFD166] ml-4"></div>
+                    <div class="flex items-center">
+                        <div class="bg-[#FFD166] text-white rounded-full h-10 w-10 flex items-center justify-center font-bold text-xl mr-4">👪</div>
+                        <div class="text-lg">子孙后代永久传承</div>
+                    </div>
+                </div>
+                <p class="text-center text-gray-600 mt-6">这份数字资产，确保了家族记忆永不褪色，让家的故事代代相传。</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h3 class="text-2xl font-bold text-[#06D6A0] mb-4 text-center">🏢 对机构：创新、赋能、创营收</h3>
+                 <p class="mb-6 text-center">引入独一无二的“AI+养老”服务，提升品牌形象，同时开辟全新的、可持续的收入来源。</p>
+                <div class="chart-container mb-6">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+                <p class="text-center text-gray-600">通过合作，机构不仅能提升服务质量，还能直接分享课程收益，实现社会价值与商业价值的双赢。</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="partnership-model" class="mb-16 bg-white p-8 rounded-lg shadow-lg">
+        <h2 class="text-3xl font-bold text-center text-[#073B4C] mb-8">合作共赢：我们如何支持您</h2>
+        <div class="max-w-2xl mx-auto">
+            <div class="flow-step">
+                <div class="flow-step-number">1</div>
+                <div>
+                    <h4 class="text-xl font-bold">免费培训辅导员</h4>
+                    <p class="text-gray-600">研究院提供全套专业培训，将您的员工升级为懂技术、善沟通的复合型人才。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-number">2</div>
+                <div>
+                    <h4 class="text-xl font-bold">免费试听课支持</h4>
+                    <p class="text-gray-600">我们提供线上免费试听课和专业讲解，全力协助机构进行市场推广，促成成交。</p>
+                </div>
+            </div>
+            <div class="flow-step">
+                <div class="flow-step-number">3</div>
+                <div>
+                    <h4 class="text-xl font-bold">共享50%课程收入</h4>
+                    <p class="text-gray-600">机构将直接获得课程报名费用的50%作为回报，轻松开辟新的盈利增长点。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center pt-8 border-t">
+         <h2 class="text-3xl font-bold text-[#073B4C] mb-4">立即加入我们</h2>
+         <p class="text-lg text-[#118AB2] mb-6">共同探索“AI+养老”的无限可能，为长者的晚年生活增添智慧与光彩。</p>
+         <button class="bg-[#EF476F] text-white font-bold py-3 px-8 rounded-lg shadow-md hover:bg-red-500 transition-colors">联系我们，开启合作</button>
+    </footer>
+
+</div>
+
+<script>
+    function wrapLabels(label) {
+        if (typeof label === 'string' && label.length > 16) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).trim().length > 16) {
+                     if (currentLine) lines.push(currentLine);
+                     currentLine = word;
+                } else {
+                    currentLine = (currentLine + ' ' + word).trim();
+                }
+            });
+            if (currentLine) lines.push(currentLine);
+            return lines;
+        }
+        return label;
+    }
+
+    const tooltipTitleCallback = function(tooltipItems) {
+        const item = tooltipItems[0];
+        let label = item.chart.data.labels[item.dataIndex];
+        if (Array.isArray(label)) {
+          return label.join(' ');
+        } else {
+          return label;
+        }
+    };
+
+    const chartOptionsTemplate = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    font: {
+                        size: 14,
+                        family: "'Noto Sans SC', sans-serif"
+                    }
+                }
+            },
+            tooltip: {
+                callbacks: {
+                    title: tooltipTitleCallback
+                },
+                 bodyFont: {
+                    size: 14,
+                    family: "'Noto Sans SC', sans-serif"
+                }
+            }
+        }
+    };
+
+    function initDementiaChart() {
+        const ctx = document.getElementById('dementiaChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['降低认知衰退风险', '其他因素'],
+                datasets: [{
+                    label: '认知活动对大脑健康的影响',
+                    data: [75, 25],
+                    backgroundColor: [
+                        '#118AB2',
+                        '#E0E0E0'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 4
+                }]
+            },
+            options: { ...chartOptionsTemplate,
+                plugins: { ...chartOptionsTemplate.plugins,
+                   title: {
+                        display: true,
+                        text: '认知活动对大脑健康的积极影响',
+                        font: { size: 16, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 }
+                    }
+                }
+            }
+        });
+    }
+
+    function initRevenueChart() {
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['养老机构分成', '研究院及运营'],
+                datasets: [{
+                    label: '课程收入分成模式',
+                    data: [50, 50],
+                     backgroundColor: [
+                        '#06D6A0',
+                        '#FFD166'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 4
+                }]
+            },
+             options: { ...chartOptionsTemplate,
+                plugins: { ...chartOptionsTemplate.plugins,
+                   title: {
+                        display: true,
+                        text: '课程收入分成模式 (6999元/人)',
+                        font: { size: 16, weight: 'bold' },
+                        padding: { top: 10, bottom: 20 }
+                    }
+                }
+            }
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        initDementiaChart();
+        initRevenueChart();
+    });
+</script>
+</body>
+</html>

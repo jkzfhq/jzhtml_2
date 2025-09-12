@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>“司马小迁”与“优侠数字人”：AI大模型赋能智慧养老项目报告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Tech & Empathy -->
+    <!-- Application Structure Plan: The SPA is designed as a persuasive, top-down narrative for government stakeholders. It starts with a high-impact Hero section stating the project's vision. It then defines the Problem/Opportunity with a compelling statistic. The core of the application is the "Solution" section, using interactive tabs to detail the two AI models without overwhelming the user. This is followed by a "Value & Impact" section, which uses charts to visualize the key social and economic benefits. The project's feasibility is demonstrated through a visual "Roadmap" and a clear "Budget Allocation" chart. The structure concludes with a strong call to action, guiding the user logically from problem to solution to impact and finally to investment. -->
+    <!-- Visualization & Content Choices: 
+        - Market Need (Opportunity): Goal: Inform. Method: Large dynamic number. Justification: To immediately convey the scale of the aging population, making the problem tangible.
+        - Core Technologies (Solution): Goal: Organize. Method: Interactive HTML/CSS tabs. Justification: Allows for detailed exploration of both "司马小迁" and "优侠数字人" within a clean, uncluttered interface.
+        - Social Value (Impact): Goal: Inform/Compare. Method: Chart.js Bar Chart. Justification: To visually demonstrate the significant positive impact on seniors' cognitive health and quality of life.
+        - Economic Value (Impact): Goal: Compare. Method: Chart.js Bar Chart. Justification: To showcase the creation of new markets and job roles, highlighting economic benefits.
+        - Project Timeline (Roadmap): Goal: Organize/Change. Method: Structured HTML/CSS timeline. Justification: Provides a clear, easy-to-follow visual representation of the project's phased implementation.
+        - Budget Allocation (Funding): Goal: Inform/Compare. Method: Chart.js Doughnut Chart. Justification: Offers an intuitive and transparent breakdown of how government funding will be utilized.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a, #047857);
+        }
+        .tab-button {
+            transition: all 0.3s ease;
+        }
+        .tab-button.active {
+            color: #1e3a8a;
+            border-bottom-color: #1e3a8a;
+            font-weight: 700;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #d1d5db;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+        }
+        .timeline-item:nth-child(odd) {
+            padding-right: 2rem;
+            left: 0;
+        }
+        .timeline-item:nth-child(even) {
+            padding-left: 2rem;
+            left: 50%;
+        }
+        .timeline-dot {
+            position: absolute;
+            top: 0.5rem;
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 9999px;
+            background-color: white;
+            border: 4px solid #1e3a8a;
+        }
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -0.625rem;
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -0.625rem;
+        }
+        .animated-value {
+            transition: all 1s ease-out;
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <header class="gradient-bg text-white sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <div class="text-2xl font-bold">AI大模型赋能智慧养老</div>
+            <div class="hidden md:flex space-x-6 text-lg">
+                <a href="#opportunity" class="hover:text-gray-200">时代机遇</a>
+                <a href="#solution" class="hover:text-gray-200">核心技术</a>
+                <a href="#impact" class="hover:text-gray-200">项目价值</a>
+                <a href="#roadmap" class="hover:text-gray-200">实施计划</a>
+                <a href="#funding" class="hover:text-gray-200">资金需求</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <section class="text-center py-20">
+            <h1 class="text-5xl md:text-6xl font-bold text-gray-900 mb-4 fade-in-up">用科技的温度，记录生命的厚度</h1>
+            <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto fade-in-up" style="transition-delay: 200ms;">“司马小迁”与“优侠数字人”AI大模型项目，致力于通过前沿科技，赋能每一位长者记录并传承宝贵的人生故事。</p>
+        </section>
+
+        <section id="opportunity" class="py-16 bg-white rounded-2xl shadow-xl fade-in-up">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-4">国家战略指引下的时代机遇</h2>
+            <p class="text-lg text-center text-gray-600 max-w-4xl mx-auto mb-12">在“人工智能+”与“健康中国”双重国家战略背景下，本项目精准聚焦于养老服务的核心痛点——精神文化的缺失，为庞大的老龄人口提供创新性的解决方案。</p>
+            <div class="text-center">
+                <p class="text-2xl text-gray-700">我国养老服务市场正面临从基础照护到精神慰藉的</p>
+                <div class="my-4 text-8xl font-bold text-blue-900 animated-value" data-target="90">0%</div>
+                <p class="text-2xl text-gray-700">的巨大价值转型空间</p>
+            </div>
+        </section>
+
+        <section id="solution" class="py-20 fade-in-up">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">双模型驱动的完整技术闭环</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="border-b border-gray-200 mb-8">
+                    <nav class="flex justify-center -mb-px space-x-8" aria-label="Tabs">
+                        <button class="tab-button active text-xl py-4 px-1 border-b-4 border-transparent" data-target="sima">“司马小迁”写作助理</button>
+                        <button class="tab-button text-xl py-4 px-1 border-b-4 border-transparent" data-target="youxia">“优侠数字人”生成工具</button>
+                    </nav>
+                </div>
+                <div id="sima" class="tab-content">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-3xl font-bold text-blue-900 mb-4">“司马小迁”：专为回忆录而生的AI语言大模型</h3>
+                        <p class="text-lg text-gray-600 mb-6">它不仅是工具，更是长者最贴心的“记忆唤醒师”与“私人传记作家”。</p>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start"><span class="font-bold text-green-600 mr-3">✔</span><div><strong class="font-semibold">情感理解与情境还原：</strong>深度学习海量传记，能精准捕捉口述中的情感，将回忆转化为生动文字。</div></li>
+                            <li class="flex items-start"><span class="font-bold text-green-600 mr-3">✔</span><div><strong class="font-semibold">个性化写作风格生成：</strong>学习并模仿用户语言风格，让文稿保留长者独有的“声音”和特色。</div></li>
+                            <li class="flex items-start"><span class="font-bold text-green-600 mr-3">✔</span><div><strong class="font-semibold">结构化叙事能力：</strong>自动梳理时间线索、人物与事件，构建清晰的传记章节，解决写作逻辑难题。</div></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="youxia" class="tab-content hidden">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-3xl font-bold text-blue-900 mb-4">“优侠数字人”：多模态AIGC短视频生成模型</h3>
+                        <p class="text-lg text-gray-600 mb-6">它让静态的文字“活”起来，成为可看、可听、可永久传承的动态数字遗产。</p>
+                         <ul class="space-y-4 text-lg">
+                            <li class="flex items-start"><span class="font-bold text-green-600 mr-3">✔</span><div><strong class="font-semibold">高精度数字人克隆：</strong>仅需少量照片视频，即可生成与长者高度相似的超写实数字分身。</div></li>
+                            <li class="flex items-start"><span class="font-bold text-green-600 mr-3">✔</span><div><strong class="font-semibold">声音克隆与情感合成：</strong>克隆长者独有音色，并根据文稿自动调整讲述情绪，极富感染力。</div></li>
+                            <li class="flex items-start"><span class="font-bold text-green-600 mr-3">✔</span><div><strong class="font-semibold">智能视频自动化生成：</strong>一键将文稿转化为数字人短视频剧集，自动匹配背景、配乐与字幕。</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="impact" class="py-16 bg-white rounded-2xl shadow-xl fade-in-up">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">显著的社会与经济价值</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-3xl font-bold text-center text-green-700 mb-6">社会价值</h3>
+                    <div class="chart-container">
+                        <canvas id="socialImpactChart"></canvas>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold text-center text-green-700 mb-6">经济价值</h3>
+                    <div class="chart-container">
+                        <canvas id="economicImpactChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="roadmap" class="py-20 fade-in-up">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-16">清晰的项目实施计划</h2>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-right">
+                            <h3 class="text-2xl font-bold text-blue-900">第一阶段 (1-6个月)</h3>
+                            <p class="mt-2 text-gray-600">研发与模型优化</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-left">
+                            <h3 class="text-2xl font-bold text-blue-900">第二阶段 (7-12个月)</h3>
+                            <p class="mt-2 text-gray-600">产品化与试点推广</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="text-right">
+                            <h3 class="text-2xl font-bold text-blue-900">第三阶段 (13-24个月)</h3>
+                            <p class="mt-2 text-gray-600">市场推广与规模化复制</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="funding" class="py-16 bg-white rounded-2xl shadow-xl fade-in-up">
+            <h2 class="text-4xl font-bold text-center text-gray-900 mb-12">资金需求与用途</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div class="text-center md:text-left">
+                     <h3 class="text-3xl font-bold text-gray-800 mb-4">每一笔投入都将用于核心价值创造</h3>
+                     <p class="text-lg text-gray-600">我们申请项目资金，将严格遵循高效、透明的原则，主要用于核心技术研发与市场验证，确保项目快速、稳健地推进，早日实现其社会与经济价值。</p>
+                </div>
+                <div class="chart-container">
+                    <canvas id="fundingChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-16 fade-in-up">
+             <h2 class="text-4xl font-bold text-gray-900 mb-4">诚请政府支持，共创和谐社会</h2>
+             <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">我们坚信，本项目将成为“AI+养老”领域的标杆，让科技的温度流淌于每一个家庭。期待与您携手，共同推动人工智能在养老领域的深度应用。</p>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Label wrapping and tooltip callback functions
+            const wrapLabels = (label) => {
+                if (typeof label === 'string' && label.length > 16) {
+                    const words = label.split(/\s+/);
+                    const lines = [];
+                    let currentLine = '';
+                    words.forEach(word => {
+                        if ((currentLine + ' ' + word).trim().length > 16) {
+                            if (currentLine) lines.push(currentLine);
+                            currentLine = word;
+                        } else {
+                            currentLine = (currentLine + ' ' + word).trim();
+                        }
+                    });
+                    if (currentLine) lines.push(currentLine);
+                    return lines;
+                }
+                return label;
+            };
+
+            const tooltipTitleCallback = (tooltipItems) => {
+                const item = tooltipItems[0];
+                let label = item.chart.data.labels[item.dataIndex];
+                if (Array.isArray(label)) {
+                    return label.join(' ');
+                }
+                return label;
+            };
+
+            // Chart initializations
+            const initSocialImpactChart = () => {
+                const ctx = document.getElementById('socialImpactChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['智力抗衰老', '家庭情感链接', '赋能产业创新'],
+                        datasets: [{
+                            label: '社会价值指数',
+                            data: [90, 85, 80],
+                            backgroundColor: ['#10b981', '#34d399', '#6ee7b7'],
+                            borderRadius: 8,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: '项目带来的三大核心社会价值', font: { size: 16 } },
+                            tooltip: { callbacks: { title: tooltipTitleCallback } }
+                        },
+                        scales: { y: { beginAtZero: true, max: 100 } }
+                    }
+                });
+            };
+
+            const initEconomicImpactChart = () => {
+                const ctx = document.getElementById('economicImpactChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['开辟全新消费市场', '构建多元化收入', '创造新型就业岗位'],
+                        datasets: [{
+                            label: '经济价值指数',
+                            data: [95, 88, 75],
+                            backgroundColor: ['#065f46', '#047857', '#059669'],
+                            borderRadius: 8,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            title: { display: true, text: '项目带来的三大核心经济价值', font: { size: 16 } },
+                            tooltip: { callbacks: { title: tooltipTitleCallback } }
+                        },
+                        scales: { y: { beginAtZero: true, max: 100 } }
+                    }
+                });
+            };
+
+            const initFundingChart = () => {
+                const ctx = document.getElementById('fundingChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['技术研发', '团队建设', '市场推广', '运营成本'],
+                        datasets: [{
+                            data: [60, 25, 10, 5],
+                            backgroundColor: ['#1e3a8a', '#1d4ed8', '#2563eb', '#3b82f6'],
+                            borderColor: '#ffffff',
+                            borderWidth: 4,
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'right' },
+                            title: { display: true, text: '项目资金用途分配', font: { size: 16 } },
+                            tooltip: { callbacks: { title: tooltipTitleCallback } }
+                        }
+                    }
+                });
+            };
+
+            initSocialImpactChart();
+            initEconomicImpactChart();
+            initFundingChart();
+
+            // Tabs functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const target = button.dataset.target;
+                    tabContents.forEach(content => {
+                        if (content.id === target) {
+                            content.classList.remove('hidden');
+                        } else {
+                            content.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+
+            // Intersection Observer for animations
+            const animatedElements = document.querySelectorAll('.fade-in-up');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            animatedElements.forEach(el => observer.observe(el));
+
+            // Animated counter
+            const animatedValue = document.querySelector('.animated-value');
+            const targetValue = parseInt(animatedValue.dataset.target, 10);
+            let currentValue = 0;
+            const step = () => {
+                const increment = Math.ceil(targetValue / 100);
+                if (currentValue < targetValue) {
+                    currentValue += increment;
+                    if (currentValue > targetValue) currentValue = targetValue;
+                    animatedValue.textContent = `${currentValue}%`;
+                    requestAnimationFrame(step);
+                } else {
+                    animatedValue.textContent = `${targetValue}%`;
+                }
+            };
+            
+            const counterObserver = new IntersectionObserver((entries) => {
+                 if (entries[0].isIntersecting) {
+                    step();
+                    counterObserver.unobserve(animatedValue);
+                 }
+            }, { threshold: 0.8 });
+
+            if (animatedValue) {
+                counterObserver.observe(animatedValue);
+            }
+        });
+    </script>
+</body>
+</html>
