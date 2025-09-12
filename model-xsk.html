@@ -53,7 +53,8 @@
             transition: transform 0.6s;
             transform-style: preserve-3d;
         }
-        .card-flip:hover .card-flip-inner {
+        .card-flip:hover .card-flip-inner,
+        .card-flip.flipped .card-flip-inner {
             transform: rotateY(180deg);
         }
         .card-front, .card-back {
@@ -347,10 +348,29 @@
             });
         }
         
+        // 添加卡片翻转功能
+        function initCardFlip() {
+            const cards = document.querySelectorAll('.card-flip');
+            cards.forEach(card => {
+                // 添加点击事件监听器
+                card.addEventListener('click', function() {
+                    // 切换翻转状态
+                    this.classList.toggle('flipped');
+                });
+                
+                // 添加触摸事件监听器（移动端）
+                card.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    this.classList.toggle('flipped');
+                });
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             initCognitiveChart();
             initBrandChart();
             initRevenueChart();
+            initCardFlip(); // 初始化卡片翻转功能
 
             const counter = document.getElementById('elderly-population');
             const target = 2.97;
