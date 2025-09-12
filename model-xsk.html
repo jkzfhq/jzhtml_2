@@ -88,16 +88,16 @@
         
         .carousel-slides {
             display: flex;
-            width: 300%; /* 3张图片 */
+            width: 500%; /* 5张图片：原始3张 + 首尾各1张克隆 */
         }
         
         .carousel-slide {
-            flex: 0 0 33.333333%; /* 每张图片占1/3 */
+            flex: 0 0 20%; /* 每张图片占1/5 */
             display: flex;
             align-items: center;
             justify-content: center;
             height: 16rem; /* 固定高度 256px */
-            width: 33.333333%; /* 确保每张图片占1/3宽度 */
+            width: 20%; /* 确保每张图片占1/5宽度 */
         }
         
         @media (min-width: 768px) {
@@ -160,16 +160,16 @@
         
         .carousel-slides-2 {
             display: flex;
-            width: 300%; /* 3张图片 */
+            width: 500%; /* 5张图片：原始3张 + 首尾各1张克隆 */
         }
         
         .carousel-slide-2 {
-            flex: 0 0 33.333333%; /* 每张图片占1/3 */
+            flex: 0 0 20%; /* 每张图片占1/5 */
             display: flex;
             align-items: center;
             justify-content: center;
             height: 16rem; /* 固定高度 256px */
-            width: 33.333333%; /* 确保每张图片占1/3宽度 */
+            width: 20%; /* 确保每张图片占1/5宽度 */
         }
         
         @media (min-width: 768px) {
@@ -237,6 +237,11 @@
             <div class="carousel-container-2 relative max-w-6xl mx-auto">
                 <div class="carousel-wrapper-2 overflow-hidden rounded-2xl shadow-lg">
                     <div class="carousel-slides-2 flex transition-transform duration-500 ease-in-out" id="carouselSlides2">
+                        <!-- 克隆最后一张图片到开头 -->
+                        <div class="carousel-slide-2">
+                            <img src="images/3.jpg" alt="人机协作技术" class="w-full h-full object-contain">
+                        </div>
+                        <!-- 原始图片 -->
                         <div class="carousel-slide-2">
                             <img src="images/1.jpg" alt="AI技术应用场景" class="w-full h-full object-contain">
                         </div>
@@ -245,6 +250,10 @@
                         </div>
                         <div class="carousel-slide-2">
                             <img src="images/3.jpg" alt="人机协作技术" class="w-full h-full object-contain">
+                        </div>
+                        <!-- 克隆第一张图片到结尾 -->
+                        <div class="carousel-slide-2">
+                            <img src="images/1.jpg" alt="AI技术应用场景" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
@@ -395,6 +404,11 @@
             <div class="carousel-container relative max-w-6xl mx-auto">
                 <div class="carousel-wrapper overflow-hidden rounded-2xl shadow-lg">
                     <div class="carousel-slides flex transition-transform duration-500 ease-in-out" id="carouselSlides">
+                        <!-- 克隆最后一张图片到开头 -->
+                        <div class="carousel-slide">
+                            <img src="images/older3.jpg" alt="老年人智能体验" class="w-full h-full object-contain">
+                        </div>
+                        <!-- 原始图片 -->
                         <div class="carousel-slide">
                             <img src="images/older1.jpg" alt="老年人使用AI技术" class="w-full h-full object-contain">
                         </div>
@@ -403,6 +417,10 @@
                         </div>
                         <div class="carousel-slide">
                             <img src="images/older3.jpg" alt="老年人智能体验" class="w-full h-full object-contain">
+                        </div>
+                        <!-- 克隆第一张图片到结尾 -->
+                        <div class="carousel-slide">
+                            <img src="images/older1.jpg" alt="老年人使用AI技术" class="w-full h-full object-contain">
                         </div>
                     </div>
                 </div>
@@ -650,33 +668,81 @@
             const indicators = document.querySelectorAll('.indicator');
             
             
-            let currentSlide = 0;
+            let currentSlide = 1; // 从第二张图片开始（第一张是克隆的）
             const totalSlides = 3;
+            const totalSlidesWithClones = 5;
+            let isTransitioning = false;
             
             function updateCarousel() {
-                const translateX = -currentSlide * 33.333333;
+                const translateX = -currentSlide * 20; // 每张图片占20%
                 slides.style.transform = `translateX(${translateX}%)`;
-                
                 
                 // 更新指示器
                 indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
+                    indicator.classList.toggle('active', index === (currentSlide - 1));
                 });
             }
             
             function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                currentSlide++;
                 updateCarousel();
+                
+                // 如果到达克隆的第一张图片，无缝跳转到真正的第一张
+                if (currentSlide === totalSlidesWithClones - 1) {
+                    setTimeout(() => {
+                        slides.style.transition = 'none';
+                        currentSlide = 1;
+                        updateCarousel();
+                        setTimeout(() => {
+                            slides.style.transition = 'transform 0.5s ease-in-out';
+                            isTransitioning = false;
+                        }, 50);
+                    }, 500);
+                } else {
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }
             }
             
             function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                currentSlide--;
                 updateCarousel();
+                
+                // 如果到达克隆的最后一张图片，无缝跳转到真正的最后一张
+                if (currentSlide === 0) {
+                    setTimeout(() => {
+                        slides.style.transition = 'none';
+                        currentSlide = totalSlides;
+                        updateCarousel();
+                        setTimeout(() => {
+                            slides.style.transition = 'transform 0.5s ease-in-out';
+                            isTransitioning = false;
+                        }, 50);
+                    }, 500);
+                } else {
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }
             }
             
             function goToSlide(slideIndex) {
-                currentSlide = slideIndex;
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                currentSlide = slideIndex + 1; // 因为第一张是克隆的
                 updateCarousel();
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500);
             }
             
             // 事件监听器
@@ -719,32 +785,81 @@
             const nextBtn = document.getElementById('nextBtn2');
             const indicators = document.querySelectorAll('.indicator-2');
             
-            let currentSlide = 0;
+            let currentSlide = 1; // 从第二张图片开始（第一张是克隆的）
             const totalSlides = 3;
+            const totalSlidesWithClones = 5;
+            let isTransitioning = false;
             
             function updateCarousel() {
-                const translateX = -currentSlide * 33.333333;
+                const translateX = -currentSlide * 20; // 每张图片占20%
                 slides.style.transform = `translateX(${translateX}%)`;
                 
                 // 更新指示器
                 indicators.forEach((indicator, index) => {
-                    indicator.classList.toggle('active', index === currentSlide);
+                    indicator.classList.toggle('active', index === (currentSlide - 1));
                 });
             }
             
             function nextSlide() {
-                currentSlide = (currentSlide + 1) % totalSlides;
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                currentSlide++;
                 updateCarousel();
+                
+                // 如果到达克隆的第一张图片，无缝跳转到真正的第一张
+                if (currentSlide === totalSlidesWithClones - 1) {
+                    setTimeout(() => {
+                        slides.style.transition = 'none';
+                        currentSlide = 1;
+                        updateCarousel();
+                        setTimeout(() => {
+                            slides.style.transition = 'transform 0.5s ease-in-out';
+                            isTransitioning = false;
+                        }, 50);
+                    }, 500);
+                } else {
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }
             }
             
             function prevSlide() {
-                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                currentSlide--;
                 updateCarousel();
+                
+                // 如果到达克隆的最后一张图片，无缝跳转到真正的最后一张
+                if (currentSlide === 0) {
+                    setTimeout(() => {
+                        slides.style.transition = 'none';
+                        currentSlide = totalSlides;
+                        updateCarousel();
+                        setTimeout(() => {
+                            slides.style.transition = 'transform 0.5s ease-in-out';
+                            isTransitioning = false;
+                        }, 50);
+                    }, 500);
+                } else {
+                    setTimeout(() => {
+                        isTransitioning = false;
+                    }, 500);
+                }
             }
             
             function goToSlide(slideIndex) {
-                currentSlide = slideIndex;
+                if (isTransitioning) return;
+                isTransitioning = true;
+                
+                currentSlide = slideIndex + 1; // 因为第一张是克隆的
                 updateCarousel();
+                
+                setTimeout(() => {
+                    isTransitioning = false;
+                }, 500);
             }
             
             // 事件监听器
