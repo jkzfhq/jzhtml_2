@@ -41,6 +41,7 @@
         .gradient-text {
             background: linear-gradient(90deg, #0284c7, #059669);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .card-flip {
@@ -74,6 +75,150 @@
             background-color: #059669;
             color: white;
         }
+        
+        /* 轮播图样式 */
+        .carousel-container {
+            position: relative;
+        }
+        
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+        }
+        
+        .carousel-slides {
+            display: flex;
+            width: 300%; /* 3张图片 */
+        }
+        
+        .carousel-slide {
+            flex: 0 0 33.333333%; /* 每张图片占1/3 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 16rem; /* 固定高度 256px */
+            width: 33.333333%; /* 确保每张图片占1/3宽度 */
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-slide {
+                height: 20rem; /* 中等屏幕 320px */
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-slide {
+                height: 24rem; /* 大屏幕 384px */
+            }
+        }
+        
+        .carousel-btn {
+            z-index: 10;
+            opacity: 0.8;
+        }
+        
+        .carousel-btn:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .indicator.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* 移动端优化 */
+        @media (max-width: 768px) {
+            .carousel-btn {
+                padding: 0.5rem;
+            }
+            
+            .carousel-btn svg {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+            
+            .carousel-indicators {
+                bottom: 1rem;
+            }
+            
+            .indicator {
+                width: 0.75rem;
+                height: 0.75rem;
+            }
+        }
+        
+        /* 第二个轮播图样式 */
+        .carousel-container-2 {
+            position: relative;
+        }
+        
+        .carousel-wrapper-2 {
+            position: relative;
+            width: 100%;
+        }
+        
+        .carousel-slides-2 {
+            display: flex;
+            width: 300%; /* 3张图片 */
+        }
+        
+        .carousel-slide-2 {
+            flex: 0 0 33.333333%; /* 每张图片占1/3 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 16rem; /* 固定高度 256px */
+            width: 33.333333%; /* 确保每张图片占1/3宽度 */
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-slide-2 {
+                height: 20rem; /* 中等屏幕 320px */
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .carousel-slide-2 {
+                height: 24rem; /* 大屏幕 384px */
+            }
+        }
+        
+        .carousel-btn-2 {
+            z-index: 10;
+            opacity: 0.8;
+        }
+        
+        .carousel-btn-2:hover {
+            opacity: 1;
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .indicator-2.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* 第二个轮播图移动端优化 */
+        @media (max-width: 768px) {
+            .carousel-btn-2 {
+                padding: 0.5rem;
+            }
+            
+            .carousel-btn-2 svg {
+                width: 1.25rem;
+                height: 1.25rem;
+            }
+            
+            .carousel-indicators-2 {
+                bottom: 1rem;
+            }
+            
+            .indicator-2 {
+                width: 0.75rem;
+                height: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
@@ -86,6 +231,44 @@
             </h1>
             <p class="text-xl text-slate-600 max-w-3xl mx-auto">我们诚邀您共同引入前沿的“AI大模型+写作”服务，打造智力抗衰老特色，开启机构发展新篇章。</p>
         </header>
+
+        <!-- 第二个轮播图区域 -->
+        <section class="mb-16">
+            <div class="carousel-container-2 relative max-w-6xl mx-auto">
+                <div class="carousel-wrapper-2 overflow-hidden rounded-2xl shadow-lg">
+                    <div class="carousel-slides-2 flex transition-transform duration-500 ease-in-out" id="carouselSlides2">
+                        <div class="carousel-slide-2">
+                            <img src="images/1.jpg" alt="AI技术应用场景" class="w-full h-full object-contain">
+                        </div>
+                        <div class="carousel-slide-2">
+                            <img src="images/2.jpg" alt="智能机器人技术" class="w-full h-full object-contain">
+                        </div>
+                        <div class="carousel-slide-2">
+                            <img src="images/3.jpg" alt="人机协作技术" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <button class="carousel-btn-2 carousel-prev-2 absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 p-2 rounded-full shadow-lg transition-all duration-200" id="prevBtn2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="carousel-btn-2 carousel-next-2 absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 p-2 rounded-full shadow-lg transition-all duration-200" id="nextBtn2">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                
+                <!-- 轮播指示器 -->
+                <div class="carousel-indicators-2 absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="carouselIndicators2">
+                    <button class="indicator-2 w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200 active" data-slide="0"></button>
+                    <button class="indicator-2 w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="1"></button>
+                    <button class="indicator-2 w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="2"></button>
+                </div>
+            </div>
+        </section>
 
         <section class="bg-white p-8 rounded-2xl shadow-lg mb-16">
             <h2 class="text-3xl font-bold text-center text-slate-900 mb-8">市场的呼唤：从基础照护到精神慰藉</h2>
@@ -203,6 +386,44 @@
                     <div class="chart-container">
                         <canvas id="revenueChart"></canvas>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 轮播图区域 -->
+        <section class="mb-16">
+            <div class="carousel-container relative max-w-6xl mx-auto">
+                <div class="carousel-wrapper overflow-hidden rounded-2xl shadow-lg">
+                    <div class="carousel-slides flex transition-transform duration-500 ease-in-out" id="carouselSlides">
+                        <div class="carousel-slide">
+                            <img src="images/older1.jpg" alt="老年人使用AI技术" class="w-full h-full object-contain">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/older2.jpg" alt="老年人数字生活" class="w-full h-full object-contain">
+                        </div>
+                        <div class="carousel-slide">
+                            <img src="images/older3.jpg" alt="老年人智能体验" class="w-full h-full object-contain">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 轮播控制按钮 -->
+                <button class="carousel-btn carousel-prev absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 p-2 rounded-full shadow-lg transition-all duration-200" id="prevBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="carousel-btn carousel-next absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white text-slate-700 p-2 rounded-full shadow-lg transition-all duration-200" id="nextBtn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+                
+                <!-- 轮播指示器 -->
+                <div class="carousel-indicators absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2" id="carouselIndicators">
+                    <button class="indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200 active" data-slide="0"></button>
+                    <button class="indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="1"></button>
+                    <button class="indicator w-3 h-3 rounded-full bg-white/60 hover:bg-white transition-all duration-200" data-slide="2"></button>
                 </div>
             </div>
         </section>
@@ -382,17 +603,180 @@
         function initCardFlip() {
             const cards = document.querySelectorAll('.card-flip');
             cards.forEach(card => {
-                // 添加点击事件监听器
+                let touchStartTime = 0;
+                let touchStartX = 0;
+                let touchStartY = 0;
+                
+                // 添加点击事件监听器（桌面端）
                 card.addEventListener('click', function() {
                     // 切换翻转状态
                     this.classList.toggle('flipped');
                 });
                 
-                // 添加触摸事件监听器（移动端）
+                // 触摸开始事件
                 card.addEventListener('touchstart', function(e) {
-                    e.preventDefault();
-                    this.classList.toggle('flipped');
+                    touchStartTime = Date.now();
+                    touchStartX = e.touches[0].clientX;
+                    touchStartY = e.touches[0].clientY;
                 });
+                
+                // 触摸结束事件
+                card.addEventListener('touchend', function(e) {
+                    const touchEndTime = Date.now();
+                    const touchEndX = e.changedTouches[0].clientX;
+                    const touchEndY = e.changedTouches[0].clientY;
+                    
+                    // 计算触摸持续时间和移动距离
+                    const touchDuration = touchEndTime - touchStartTime;
+                    const touchDistanceX = Math.abs(touchEndX - touchStartX);
+                    const touchDistanceY = Math.abs(touchEndY - touchStartY);
+                    
+                    // 只有在短时间、小距离移动时才认为是点击（翻转卡片）
+                    // 如果移动距离较大或时间较长，则认为是滑动（不翻转，允许页面滚动）
+                    if (touchDuration < 300 && touchDistanceX < 10 && touchDistanceY < 10) {
+                        e.preventDefault(); // 阻止默认行为
+                        this.classList.toggle('flipped');
+                    }
+                    // 否则不阻止默认行为，允许页面滚动
+                });
+            });
+        }
+
+        // 轮播图功能
+        function initCarousel() {
+            const slides = document.getElementById('carouselSlides');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            
+            let currentSlide = 0;
+            const totalSlides = 3;
+            
+            function updateCarousel() {
+                const translateX = -currentSlide * 33.333333;
+                slides.style.transform = `translateX(${translateX}%)`;
+                
+                
+                // 更新指示器
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+            
+            // 事件监听器
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // 自动轮播（每5秒切换一次）
+            setInterval(nextSlide, 5000);
+            
+            // 触摸滑动支持（移动端）
+            let startX = 0;
+            let endX = 0;
+            
+            slides.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            slides.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > 50) { // 最小滑动距离
+                    if (diff > 0) {
+                        nextSlide(); // 向左滑动，显示下一张
+                    } else {
+                        prevSlide(); // 向右滑动，显示上一张
+                    }
+                }
+            });
+        }
+
+        // 第二个轮播图功能
+        function initCarousel2() {
+            const slides = document.getElementById('carouselSlides2');
+            const prevBtn = document.getElementById('prevBtn2');
+            const nextBtn = document.getElementById('nextBtn2');
+            const indicators = document.querySelectorAll('.indicator-2');
+            
+            let currentSlide = 0;
+            const totalSlides = 3;
+            
+            function updateCarousel() {
+                const translateX = -currentSlide * 33.333333;
+                slides.style.transform = `translateX(${translateX}%)`;
+                
+                // 更新指示器
+                indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === currentSlide);
+                });
+            }
+            
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                updateCarousel();
+            }
+            
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                updateCarousel();
+            }
+            
+            function goToSlide(slideIndex) {
+                currentSlide = slideIndex;
+                updateCarousel();
+            }
+            
+            // 事件监听器
+            nextBtn.addEventListener('click', nextSlide);
+            prevBtn.addEventListener('click', prevSlide);
+            
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', () => goToSlide(index));
+            });
+            
+            // 自动轮播（每6秒切换一次，与第一个轮播图错开时间）
+            setInterval(nextSlide, 6000);
+            
+            // 触摸滑动支持（移动端）
+            let startX = 0;
+            let endX = 0;
+            
+            slides.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+            });
+            
+            slides.addEventListener('touchend', (e) => {
+                endX = e.changedTouches[0].clientX;
+                const diff = startX - endX;
+                
+                if (Math.abs(diff) > 50) { // 最小滑动距离
+                    if (diff > 0) {
+                        nextSlide(); // 向左滑动，显示下一张
+                    } else {
+                        prevSlide(); // 向右滑动，显示上一张
+                    }
+                }
             });
         }
 
@@ -401,6 +785,8 @@
             initBrandChart();
             initRevenueChart();
             initCardFlip(); // 初始化卡片翻转功能
+            initCarousel(); // 初始化轮播图功能
+            initCarousel2(); // 初始化第二个轮播图功能
 
             const counter = document.getElementById('elderly-population');
             const target = 2.97;
