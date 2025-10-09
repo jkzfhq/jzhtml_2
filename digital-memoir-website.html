@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数字回忆录 | 送给父母一份可以传承的健康礼物</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .hero-bg {
+            background: linear-gradient(to bottom, rgba(245, 245, 245, 0.9), rgba(245, 245, 245, 1)), url('https://images.unsplash.com/photo-1518384132174-8d484e0a43d8?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+        .cta-button {
+            transition: all 0.3s ease;
+        }
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- 导航栏 -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-gray-700">数字回忆录</h1>
+            <a href="#pricing" class="cta-button bg-orange-500 text-white font-semibold px-6 py-2 rounded-full hidden md:inline-block">立即赠送</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 英雄区域 -->
+        <section class="hero-bg py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-4xl md:text-6xl font-bold text-gray-800 mb-4 leading-tight">送一份特别的礼物给爸妈</h2>
+                <p class="text-lg md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">每周一个暖心回忆，帮助老人恢复智力。这不仅是科学的健脑活动，更是为整个家族留下一份可以永久传承的精神财富。</p>
+                <a href="#pricing" class="cta-button bg-orange-500 text-white font-bold px-10 py-4 rounded-full text-lg">私人定制・仅需 789 元</a>
+            </div>
+        </section>
+
+        <!-- 痛点区域 -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-2">您是否也有这样的烦恼？</h3>
+                <p class="text-gray-500 mb-12">我们都想给父母最好的，但...</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="p-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <h4 class="font-bold text-xl mb-2">工作太忙，缺少陪伴</h4>
+                        <p class="text-gray-600">想多和爸妈聊聊天，却总是抽不出完整的时间，电话里也总是说些琐事。</p>
+                    </div>
+                    <div class="p-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" /></svg>
+                        <h4 class="font-bold text-xl mb-2">担心健康，尤其是大脑</h4>
+                        <p class="text-gray-600">害怕父母老年痴呆，担心认知能力的下降，希望他们能健康、快乐地安度晚年。</p>
+                    </div>
+                    <div class="p-6">
+                         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                        <h4 class="font-bold text-xl mb-2">家族故事，正在遗忘</h4>
+                        <p class="text-gray-600">父母一生的经历、家族的珍贵回忆，如果我们不记录，它们可能就随时间永远流逝了。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 解决方案 -->
+        <section class="py-16">
+            <div class="container mx-auto px-6">
+                <div class="md:flex items-center">
+                    <div class="md:w-1/2">
+                        <!-- 图片: 三张精美的回忆录封面样稿 -->
+                        <h4 class="text-2xl font-bold text-center mb-6 md:text-left">精美封面设计 · 留住时光质感</h4>
+                        <div class="flex justify-center md:justify-start gap-4">
+                            <div class="w-1/3 transform transition-transform duration-300 hover:scale-105 hover:-rotate-3">
+                                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=300&auto=format&fit=crop&h=420" alt="回忆录封面样稿一：岁月留声" class="rounded-lg shadow-2xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/300x420/f5e5d3/4a3f35?text=封面加载失败';">
+                            </div>
+                            <div class="w-1/3 transform transition-transform duration-300 hover:scale-105 z-10 -translate-y-2">
+                                <img src="https://images.unsplash.com/photo-1589998059171-988d887df646?q=80&w=300&auto=format&fit=crop&h=420" alt="回忆录封面样稿二：我的前半生" class="rounded-lg shadow-2xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/300x420/2c3e50/ecf0f1?text=封面加载失败';">
+                            </div>
+                            <div class="w-1/3 transform transition-transform duration-300 hover:scale-105 hover:rotate-3">
+                                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=300&auto=format&fit=crop&h=420" alt="回忆录封面样稿三：家时光" class="rounded-lg shadow-2xl w-full" onerror="this.onerror=null;this.src='https://placehold.co/300x420/8f8a80/ffffff?text=封面加载失败';">
+                            </div>
+                        </div>
+                        <p class="text-center text-gray-500 mt-6 text-sm">多种封面风格可选，为您定制专属回忆</p>
+                    </div>
+                    <div class="md:w-1/2 md:pl-16 mt-12 md:mt-0">
+                        <span class="text-orange-500 font-semibold">我们的解决方案</span>
+                        <h3 class="text-4xl font-bold mt-2 mb-4">一份持续一年的关怀</h3>
+                        <p class="text-gray-600 text-lg mb-6">【数字回忆录】是一份独特的礼物。它以“科学健脑”为内核，通过每周一次的写作任务，不仅能有效锻炼父母的认知能力，还能将他们零散的记忆串联成册，最终形成一本承载着家族历史的精美传记。</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span class="text-orange-500 font-bold mr-3">✔</span> <strong>科学健脑：</strong> 回忆和写作是世界公认的、有效的非药物性大脑锻炼方式。</li>
+                            <li class="flex items-start"><span class="text-orange-500 font-bold mr-3">✔</span> <strong>情感链接：</strong> 每周的问题，将成为您和父母之间全新的、有深度的沟通桥梁。</li>
+                            <li class="flex items-start"><span class="text-orange-500 font-bold mr-3">✔</span> <strong>永久传承：</strong> 这不仅是一本书，更是一部可以传给子孙后代的“家族史诗”。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 全球趋势 -->
+        <section class="py-16 bg-orange-50">
+            <div class="container mx-auto px-6 text-center max-w-4xl">
+                <h3 class="text-3xl font-bold mb-4">全世界有百万老年人用写作来防止脑衰</h3>
+                <p class="text-lg text-gray-600">
+                    研究表明，持续的叙事写作和深度回忆，是锻炼大脑海马体、延缓认知衰退的有效方式。这不仅是一种爱好，更是一项对未来健康的积极投资。
+                </p>
+            </div>
+        </section>
+
+        <!-- 如何运作 -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-12">只需简单四步，轻松开启回忆之旅</h3>
+                <div class="grid md:grid-cols-4 gap-8 relative">
+                    <!-- Dashed line connector for desktop -->
+                    <div class="hidden md:block absolute top-1/2 left-0 w-full h-px -translate-y-12">
+                        <svg width="100%" height="2"><line x1="0" y1="1" x2="100%" y2="1" stroke="#fb923c" stroke-width="2" stroke-dasharray="8 8"/></svg>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                        <h4 class="font-bold text-xl mb-2">您来赠送</h4>
+                        <p class="text-gray-600">在线下单，系统会生成一张精美的电子礼品卡，通过微信送给父母，充满仪式感。</p>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                        <h4 class="font-bold text-xl mb-2">父母记录</h4>
+                        <p class="text-gray-600">父母每周收到一个问题，直接在微信里用 <strong class="text-orange-600">打字或语音</strong> 回答即可。我们负责将语音转成文字，操作零门槛！</p>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                        <h4 class="font-bold text-xl mb-2">我们制作</h4>
+                        <p class="text-gray-600">一年后，我们将50个故事和珍贵照片进行专业校对、排版、设计，制作成册。</p>
+                    </div>
+                    <div class="relative z-10">
+                        <div class="bg-orange-500 text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                        <h4 class="font-bold text-xl mb-2">全家共享</h4>
+                        <p class="text-gray-600">我们将精美的实体书、有声书和电子书寄送到家，一份珍贵的家族遗产就此诞生。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 强大的服务支持 -->
+        <section class="py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-12">强大的服务支持，让回忆轻松又安心</h3>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path>
+                        </svg>
+                        <h4 class="font-bold text-2xl mb-2">AI 写作助手</h4>
+                        <p class="text-gray-600">不会写作没关系！只要说出回忆的关键词，我们的AI智能体“司马小迁”就能辅助您组织语言、润色成文，让故事更生动。</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                             <path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <h4 class="font-bold text-2xl mb-2">科学回忆课程</h4>
+                        <p class="text-gray-600">我们提供300节心理健康老师授课的短视频课程，一步步帮助老人科学地回忆，有效化解过程中的不适心理。</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto mb-4 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <h4 class="font-bold text-2xl mb-2">银行级的隐私保护</h4>
+                        <p class="text-gray-600">所有写作内容默认保存在您或子女的手机里，我们不会主动收集。任何涉密隐私内容，我们都不会保存和上传。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最终交付 -->
+        <section class="py-16">
+            <div class="container mx-auto px-6 text-center">
+                <h3 class="text-3xl font-bold mb-12">您将收获一套完整的家族珍宝</h3>
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?q=80&w=300&auto=format&fit=crop&h=200" alt="精装实体书" class="w-full h-48 object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=精装实体书';">
+                        <h4 class="font-bold text-2xl mb-2">精装实体书</h4>
+                        <p class="text-gray-600">采用高品质纸张和印刷工艺，封面典雅，可永久珍藏于家中书架。</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=300&auto=format&fit=crop&h=200" alt="AI有声书" class="w-full h-48 object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=图片加载失败';">
+                        <h4 class="font-bold text-2xl mb-2">AI情感有声书</h4>
+                        <p class="text-gray-600">将所有故事由AI进行情感朗读，生成专属有声书，随时随地收听家的声音。</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?q=80&w=300&auto=format&fit=crop&h=200" alt="电子书" class="w-full h-48 object-cover rounded-md mb-6" onerror="this.onerror=null;this.src='https://placehold.co/300x200/e2e8f0/94a3b8?text=图片加载失败';">
+                        <h4 class="font-bold text-2xl mb-2">多格式电子书</h4>
+                        <p class="text-gray-600">生成PDF或H5网页版电子书，方便您在家族微信群中一键分享，让亲友共赏。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见问题 -->
+        <section class="py-16 bg-white" x-data="{ open: null }">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h3 class="text-3xl font-bold text-center mb-12">常见问题 (FAQ)</h3>
+                <div class="space-y-4">
+                    <div class="border rounded-lg">
+                        <button @click="open = open === 1 ? null : 1" class="w-full text-left p-4 font-semibold flex justify-between items-center">
+                            老人不会用智能手机打字怎么办？
+                            <svg :class="{'rotate-180': open === 1}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div x-show="open === 1" x-collapse class="p-4 pt-0 text-gray-600">
+                            这是我们设计的核心！我们支持<strong class="text-orange-600">微信语音输入</strong>。父母只需要像平时聊天一样，发送一段语音，我们的系统会自动将语音精准地转化为文字并保存。整个过程零学习成本，极其方便。
+                        </div>
+                    </div>
+                    <div class="border rounded-lg">
+                        <button @click="open = open === 2 ? null : 2" class="w-full text-left p-4 font-semibold flex justify-between items-center">
+                            如果某一周忘记写了怎么办？
+                            <svg :class="{'rotate-180': open === 2}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div x-show="open === 2" x-collapse class="p-4 pt-0 text-gray-600">
+                            完全没关系！我们的系统非常灵活，所有过往的问题都会被保存，父母可以随时回去补充回答。并且，作为子女，您也可以在自己的微信端收到友好的提醒，可以适时鼓励父母一下。
+                        </div>
+                    </div>
+                     <div class="border rounded-lg">
+                        <button @click="open = open === 3 ? null : 3" class="w-full text-left p-4 font-semibold flex justify-between items-center">
+                            可以上传老照片吗？
+                            <svg :class="{'rotate-180': open === 3}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div x-show="open === 3" x-collapse class="p-4 pt-0 text-gray-600">
+                            当然可以！我们鼓励并引导用户上传与故事相关的珍贵老照片。这些照片最终会被精心排版进实体书中，让回忆录图文并茂，更加生动感人。
+                        </div>
+                    </div>
+                     <div class="border rounded-lg">
+                        <button @click="open = open === 4 ? null : 4" class="w-full text-left p-4 font-semibold flex justify-between items-center">
+                           我可以为其他亲人多买几本书吗？
+                            <svg :class="{'rotate-180': open === 4}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                        </button>
+                        <div x-show="open === 4" x-collapse class="p-4 pt-0 text-gray-600">
+                           可以的。在服务结束，最终稿件确认后，您可以按需加印实体书，送给家中的兄弟姐妹或其他亲人，让这份家族记忆被更多人珍藏。我们会提供一个非常优惠的加印价格。
+                        </div>
+                    </div>
+                    <div class="border rounded-lg">
+                        <button @click="open = open === 5 ? null : 5" class="w-full text-left p-4 font-semibold flex justify-between items-center">
+                           数据安全吗？隐私如何保证？
+                            <svg :class="{'rotate-180': open === 5}" class="w-5 h-5 transition-transform" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div x-show="open === 5" x-collapse="" class="p-4 pt-0 text-gray-600" style="display: none;">
+                           我们极为重视您的隐私安全。所有内容默认仅保存在用户自己的设备（手机）本地，未经您的允许，不会上传到我们的服务器。您拥有对自己数据100%的控制权，可以随时导出或删除。我们承诺绝不查看、分析或使用您的任何私人回忆内容。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 定价与CTA -->
+        <section id="pricing" class="py-20 bg-gray-200">
+            <div class="container mx-auto px-6 text-center max-w-2xl">
+                <h3 class="text-4xl font-bold mb-4">开启一段为期一年的回忆之旅</h3>
+                <p class="text-gray-600 mb-8 text-lg">一份礼物，包含全套服务：50个精心设计的问题、语音转文字技术支持、专业编辑排版、以及最终交付的全套回忆录产品。</p>
+                <div class="bg-white p-8 rounded-xl shadow-2xl">
+                    <p class="text-5xl font-extrabold text-orange-600 mb-2">¥789</p>
+                    <p class="text-gray-500 mb-6">全包服务・无任何额外费用</p>
+                    <a href="#" class="cta-button bg-orange-500 text-white font-bold w-full py-4 rounded-lg text-xl block">立即为父母赠送</a>
+                    <p class="text-xs text-gray-400 mt-4">点击即表示您同意我们的服务条款</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="font-bold text-xl mb-4">数字回忆录</p>
+            <p class="mb-6">为爱记录，用心传承。</p>
+            <div class="flex justify-center space-x-6">
+                <a href="#" class="hover:text-orange-400">关于我们</a>
+                <a href="#" class="hover:text-orange-400">联系客服</a>
+                <a href="#" class="hover:text-orange-400">隐私政策</a>
+            </div>
+            <p class="mt-8 text-sm text-gray-400">&copy; 2025 数字回忆录. 版权所有.</p>
+            <p class="mt-2 text-xs text-gray-500">苏ICP备19052447号-5</p>
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+
